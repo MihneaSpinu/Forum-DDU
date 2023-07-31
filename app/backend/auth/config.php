@@ -1,5 +1,10 @@
 <?php
 
+$remoteSecret = parse_ini_file('../yourSecrets.ini');
+$localSecret = parse_ini_file('../secrets.ini');
+
+$current = $remoteSecret;
+
 $GLOBALS['config'] = array(
 
     'app' => array(
@@ -7,10 +12,10 @@ $GLOBALS['config'] = array(
     ),
 
     'mysql' => array(
-        'host'          => '127.0.0.1',
-        'username'      => 'root',
-        'password'      => '',
-        'db_name'        => 'php_boilerplate'
+        'host'          => $current['db_host'],
+        'username'      => $current['db_user'],
+        'password'      => $current['db_password'],
+        'db_name'        => $current['db_name']
     ),
 
     'password' => array(

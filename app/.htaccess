@@ -1,2 +1,2 @@
 Options --Indexes
-
+AddType application/x-httpd-php81 .php

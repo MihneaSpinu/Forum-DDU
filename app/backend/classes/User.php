@@ -91,12 +91,12 @@ class User
                     if ($remember)
                     {
                         $hash       = Hash::unique();
-                        $hashCheck  = $this->_db->get('users_session', array('user_id', '=', $this->data()->uid));
+                        $hashCheck  = $this->_db->get('users_session', array('uid', '=', $this->data()->uid));
 
                         if (!$hashCheck->count())
                         {
                             $this->_db->insert('users_session', array(
-                                'user_id'   => $this->data()->uid,
+                                'uid'   => $this->data()->uid,
                                 'hash'      => $hash
                             ));
                         }
@@ -118,7 +118,7 @@ class User
 
     public function hasPermission($key)
     {
-        $group = $this->_db->get('groups', array('gid', '=', $this->data()->groups));
+        $group = $this->_db->get('groups', array('group_id', '=', $this->data()->groups));
 
         if  ($group->count())
         {
@@ -140,7 +140,7 @@ class User
 
     public function logout()
     {
-        $this->_db->delete('users_session', array('user_id', '=', $this->data()->uid));
+        $this->_db->delete('users_session', array('uid', '=', $this->data()->uid));
 
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);

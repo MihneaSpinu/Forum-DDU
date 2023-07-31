@@ -4,8 +4,7 @@ class Input
 {
     public static function exists($type = 'POST')
     {
-        switch ($type)
-        {
+        switch ($type) {
             case 'POST':
                 return (!empty($_POST)) ? true : false;
                 break;
@@ -20,14 +19,17 @@ class Input
         }
     }
 
+    public static function clear()
+    {
+        $_POST = array();
+        $_GET = array();
+    }
+
     public static function get($item)
     {
-        if(isset($_POST[$item]))
-        {
+        if (isset($_POST[$item])) {
             return $_POST[$item];
-        }
-        elseif (isset($_GET[$item]))
-        {
+        } elseif (isset($_GET[$item])) {
             return $_GET[$item];
         }
         return '';

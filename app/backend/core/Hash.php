@@ -2,14 +2,18 @@
 
 class Hash
 {
-    public static function make($string)
+    public static function make($string, $salt = null)
     {
-        return hash(Config::get('hash/algo_name'), $string . Hash::salt());
+        if ($salt === null) {
+            $salt = self::salt();
+        }
+
+        return hash(Config::get('hash/algo_name'), $string . $salt);
     }
 
-    public static function salt()
+    public static function salt($length = 32)
     {
-        return mcrypt_create_iv(Config::get('hash/salt'));
+        return bin2hex(random_bytes($length));
     }
 
     public static function unique()
