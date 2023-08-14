@@ -77,7 +77,7 @@
             <label for='salutation_id'>Salutation:</label>
             <select name='salutation_id'>
                 <option value='1'>Mr</option>
-                <option value='2'>Ms</option>
+                <option value='2'>Mrs</option>
                 <!-- Add more options as needed -->
             </select><br>
             <input type='submit' name='submit_membership' value='Add Membership'>
