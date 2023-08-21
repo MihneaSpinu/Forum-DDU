@@ -1,5 +1,6 @@
 <?php
 session_start();
+//session_destroy();
 
 $products = [
     ['id' => 1, 'name' => 'Vare A', 'price' => 10.99],
@@ -47,14 +48,15 @@ function displayCart()
         echo "<ul>";
         $total = 0;
 
-        foreach ($_SESSION['cart'] as $product_id => $cart_item) {
+        foreach ($_SESSION['cart'] as $cart_item) {
             $product = $cart_item['product'];
             $quantity = $cart_item['quantity'];
             $subtotal = $product['price'] * $quantity;
-
+        
             echo "<li>{$product['name']} - {$product['price']} DKK x {$quantity} = {$subtotal} DKK</li>";
             $total += $subtotal;
         }
+        
 
         echo "</ul>";
         echo "<p><strong>Total: {$total} DKK</strong></p>";
@@ -80,7 +82,7 @@ function displayCart()
     <ul>
         <?php foreach ($products as $product) : ?>
             <li>
-                <?= "{$product['name']} - {$product['price']} DKK"; ?>
+            <?php echo "{$product['name']} - {$product['price']} DKK"; ?>
                 <form method="post">
                     <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                     <input type="submit" name="add_to_cart" value="Tilføj til kurv">

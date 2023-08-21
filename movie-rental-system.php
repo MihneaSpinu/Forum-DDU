@@ -47,26 +47,32 @@
 
     $result = $conn->query($query);
 
+
     if ($result->num_rows > 0) {
-        echo "<table border='1'>
+    ?>
+        <table border='1'>
             <tr>
                 <th>Full Name</th>
                 <th>Salutation</th>
                 <th>Rented Movie</th>
-            </tr>";
-
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                <td>" . $row['full_name'] . "</td>
-                <td>" . $row['salutation'] . "</td>
-                <td>" . $row['rented_movie'] . "</td>
-            </tr>";
-        }
-
-        echo "</table>";
+            </tr>
+            <?php
+            while ($row = $result->fetch_assoc()) {
+            ?>
+                <tr>
+                    <td><?php echo $row['full_name']; ?></td>
+                    <td><?php echo $row['salutation']; ?></td>
+                    <td><?php echo $row['rented_movie']; ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </table>
+    <?php
     } else {
         echo "No records found.";
     }
+
 
     echo "<h2>Add Membership</h2>";
     echo "<form method='POST'>
