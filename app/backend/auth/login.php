@@ -18,7 +18,7 @@ if (Input::exists()) {
         if ($validation->passed()) {
             $remember   = (Input::get('remember') === 'on') ? true : false;
             $login      = $user->login(Input::get('username'), Input::get('password'), $remember);
-            if (true) {
+            if ($login) {
                 Session::flash('login-success', 'You have successfully logged in!');
                 Redirect::to('forum.php');
             } else {
