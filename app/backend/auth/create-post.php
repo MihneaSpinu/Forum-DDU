@@ -29,7 +29,7 @@ if (Input::exists()) {
                 ));
 
                 Session::flash('create-post-success', 'Thanks for posting.');
-                Redirect::to('posts.php?id=' . Input::get('channel_id'));
+                Redirect::to('posts.php?channel_id=' . Input::get('channel_id'));
             } catch (Exception $e) {
                 die($e->getMessage());
             }
