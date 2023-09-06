@@ -10,7 +10,7 @@
                     foreach ($comments->results() as $c) {
                         echo '<div class="card">';
                         echo '<div class="card-body">';
-                        echo '<h4 class="card-title">' . $c->user_id . '</h4>';
+                        echo '<h4 class="card-title">' . $c->username . '</h4>';
                         echo '<p class="card-text">' . $c->content . '</p>';
                         echo '<p class="card-text">' . $c->created_at . '</p>';
                         echo '</div>';
