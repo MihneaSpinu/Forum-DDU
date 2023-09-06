@@ -10,6 +10,5 @@ if (!Input::get('post_id')) {
 
 $post_id = Input::get('post_id');
 $post = Post::getPostById($post_id);
-
-
 $comments = Comment::getAllComments($post_id);
+
