@@ -12,7 +12,7 @@
                     echo '<div class="card-body">';
                     echo '<h4 class="card-title">' . $channel->name . '</h4>';
                     echo '<p class="card-text">' . $channel->description . '</p>';
-                    echo '<a href="posts.php?id=' . $channel->channel_id . '" class="btn btn-primary">View Channel</a>';
+                    echo '<a href="posts.php?channel_id=' . $channel->channel_id . '" class="btn btn-primary">View Channel</a>';
                     echo '</div>';
                     echo '</div>';
                 }
@@ -20,8 +20,6 @@
                 echo '<div class="alert alert-danger"><strong></strong>No channels found!</div>';
             }
             ?>
-
-
         </div>
     </div>
 </div>
