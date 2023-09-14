@@ -1,21 +1,20 @@
 <?php
 
 $remoteSecret = parse_ini_file('../yourSecrets.ini');
-$localSecret = parse_ini_file('../secrets.ini');
 
-$current = $localSecret;
+$current = $remoteSecret;
 
 $GLOBALS['config'] = array(
 
     'app' => array(
-        'name'          => 'AppName',
+        'name'          => 'Forum med Mihnea, Jeppe, Casper, Gunnar',
     ),
 
     'mysql' => array(
         'host'          => $current['db_host'],
         'username'      => $current['db_user'],
         'password'      => $current['db_password'],
-        'db_name'        => $current['db_name']
+        'db_name'       => $current['db_name']
     ),
 
     'password' => array(
