@@ -13,22 +13,51 @@
 
   <!-- Custom Assets 
 
-  <link rel="stylesheet" href="<?php //echo FRONTEND_ASSET . 'css/profile.css'; ?>">
+  <link rel="stylesheet" href="<?php //echo FRONTEND_ASSET . 'css/profile.css'; 
+                                ?>">
 -->
   <style>
     .fakeimg {
       height: 200px;
       background: #aaa;
     }
+    body {
+      background-color: #fffff2;
+    }
   </style>
 </head>
 
 <body>
+  <!-- round logo -->
+  <div class="jumbotron text-center" style="margin-bottom:0; background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); ">
+      <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="rounded" alt="Cinque Terre" height="100" align="left">
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>My First <?php appName(); ?></h1>
-  <p>Resize this responsive page to see the effect!</p>
-  <?php if ($user->isLoggedIn()) : ?>
-    <h3 align="right">Hello, <?php echo $user->data()->name; ?></h3>
-  <?php endif; ?>
-</div>
+      <?php if ($user->isLoggedIn()) : ?>
+        <h3 align="right">Hello, <?php echo $user->data()->name; ?></h3>
+        <ul align="right" class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">
+              <span class="glyphicon glyphicon-user"></span> Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">
+              <span class="glyphicon glyphicon-log-out"></span> Logout
+            </a>
+          </li>
+        </ul>
+      <?php else : ?>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">
+              <span class="glyphicon glyphicon-user"></span> Register
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">
+              <span class="glyphicon glyphicon-log-in"></span> Log-in
+            </a>
+          </li>
+        </ul>
+      <?php endif; ?>
+    </div>
