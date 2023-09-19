@@ -1,0 +1,28 @@
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+body {
+    background-color: #fffff2;
+}
+
+.header {
+    margin-bottom: 0;
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+}
+.header .nav-link {
+    color: black;
+    font-weight: bold;
+}
+.header .nav-link:hover {
+    color: grey;
+}
+
+.navbar-nav{
+    width: fit-content;
+}
+
+h3 {
+    width: fit-content;
+}
