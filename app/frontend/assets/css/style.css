@@ -4,25 +4,38 @@
 }
 
 body {
-    background-color: #fffff2;
+    /* gray */
+    background-color: rgb(43, 42, 51);
 }
 
 .header {
     margin-bottom: 0;
-    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+    background-image: url(../../../../Img/beautiful-milky-way-night-sky.jpg);
+    border-radius: 0;
+    background-size: cover;
 }
 .header .nav-link {
-    color: black;
+    color: white;
     font-weight: bold;
 }
 .header .nav-link:hover {
     color: grey;
 }
-
-.navbar-nav{
-    width: fit-content;
+.navbar {
+    box-shadow: 5px 0px 10px black;
 }
 
 h3 {
     width: fit-content;
+}
+
+.banner-container {
+    background-image: url(../../../../Img/Finite_Abys.png);
+    aspect-ratio: 19.2 / 6;
+    width: 100%;
+    background-size: contain;
+}
+
+footer p {
+    color: white;
 }
