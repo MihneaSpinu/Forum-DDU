@@ -1,4 +1,4 @@
-<div class="footer container border-top my-4 w-5 p-30">
+<div class="footer container border-top my-4 w-5 p-30 mt-5">
   <footer>
     <ul class="nav justify-content-center border-bottom py-4 mb-4">
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
