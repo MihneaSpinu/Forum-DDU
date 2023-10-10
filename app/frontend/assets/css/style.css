@@ -34,6 +34,16 @@ h3 {
     width: fit-content;
 }
 
+p {
+    color: white;
+    width: fit-content;
+}
+
+ol {
+    color: white;
+    width: fit-content;
+}
+
 .banner-container {
     background-image: url(../../../../Img/Finite_Abys.png);
     aspect-ratio: 19.2 / 6;
@@ -41,6 +51,6 @@ h3 {
     background-size: contain;
 }
 
-footer p {
+footer {
     color: white;
 }

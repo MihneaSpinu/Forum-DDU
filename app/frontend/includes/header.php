@@ -44,8 +44,8 @@
       <?php else : ?>
 
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2" href="login.php">Login</button>
-          <button type="button" class="btn btn-primary" href="register.php">Sign-up</button>
+          <a type="button" class="btn btn-outline-primary me-2" href="login.php">Login</a>
+          <a type="button" class="btn btn-primary" href="register.php">Sign-up</a>
         </div>
       <?php endif; ?>
 
