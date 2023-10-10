@@ -10,7 +10,7 @@ body {
 
 .header {
     margin-bottom: 0;
-    background-image: url(../../../../Img/beautiful-milky-way-night-sky.jpg);
+    background-image: url(../Img/beautiful-milky-way-night-sky.jpg);
     border-radius: 0;
     background-size: cover;
 }
@@ -45,7 +45,7 @@ ol {
 }
 
 .banner-container {
-    background-image: url(../../../../Img/Finite_Abys.png);
+    background-image: url(../Img/Finite_Abys.png);
     aspect-ratio: 19.2 / 6;
     width: 100%;
     background-size: contain;

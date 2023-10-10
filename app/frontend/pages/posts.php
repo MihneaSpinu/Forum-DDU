@@ -15,6 +15,7 @@
                     echo '<a href="comments.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
                     echo '</div>';
                     echo '</div>';
+                    
                 }
             } else {
                 echo '<div class="alert alert-danger"><strong></strong>No posts found!</div>';
