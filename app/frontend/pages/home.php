@@ -1,6 +1,14 @@
+<link rel="stylesheet" href="style">
+<div class="banner-container">
+</div>
 <div class="container" style="margin-top:30px">
-    <div class="row">
+    <div class="row">    
       <div class="col-sm-4">
+<<<<<<< HEAD
+        
+      </div>
+      <div class="col-sm-8">
+=======
         <h2>About gooning</h2>
         <h5>Photo of gooning:</h5>
         <div class="fakeimg">Real Image</div>
@@ -41,5 +49,7 @@
 
 Gooning is not a nawcissistic manifestation. Nawcissism is extweme sewfishness, with a gwandiose view of one's own tawents. Wathew, gooning is cwosew to a meditation expewience, whewe the mind and the body awign, focused on a singwe thought (ow feewing, in this case)..</p>
       </div>
+>>>>>>> development
     </div>
+    <h1>Welcome to Broom Sweep Games</h1>
   </div>
