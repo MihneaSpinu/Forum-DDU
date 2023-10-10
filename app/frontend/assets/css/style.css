@@ -25,6 +25,11 @@ body {
     box-shadow: 5px 0px 10px black;
 }
 
+h1 {
+    color: white;
+    width: fit-content;
+}   
+
 h3 {
     width: fit-content;
 }
