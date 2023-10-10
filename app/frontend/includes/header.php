@@ -10,25 +10,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-
-  <!-- Custom Assets 
-
-  <link rel="stylesheet" href="<?php //echo FRONTEND_ASSET . 'css/profile.css'; 
-                                ?>">
--->
-  <style>
-
-  </style>
 </head>
 
 <body>
   <div class="jumbotron header">
-    <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle">
+    <img src="" alt="Logo" class="img-fluid rounded-circle">
+    <!-- FIX -->
     <div align="right">
-
       <?php if ($user->isLoggedIn()) : ?>
-        <h3>Hello, <?php echo $user->data()->name; ?></h3>
+        <h3 style="color: rgba(255,255,255,.5);">Hello, <?php echo $user->data()->name; ?></h3>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item profile">
             <a class="nav-link" href="profile.php">
@@ -48,6 +38,5 @@
           <a type="button" class="btn btn-primary" href="register.php">Sign-up</a>
         </div>
       <?php endif; ?>
-
     </div>
   </div>

@@ -24,23 +24,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `channels`
+-- Table structure for table `topics`
 --
 
-CREATE TABLE `channels` (
-  `channel_id` int(11) NOT NULL,
+CREATE TABLE `topics` (
+  `forum_id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `channels`
+-- Dumping data for table `topics`
 --
 
-INSERT INTO `channels` (`channel_id`, `name`, `description`, `created_at`) VALUES
-(1, 'WorldNews', 'A place for major news from around the world, excluding US-internal news.', '0000-00-00 00:00:00'),
-(2, 'Denmark ', 'A forum for discussions, funny tidbits and news about Denmark and the Danes. This forum is mainly in Danish, but posts in other Scandinavian languages and English are welcome too.', '2023-07-29 11:38:27');
+INSERT INTO `topics` (`forum_id`, `topic_id`, `name`, `description`) VALUES
+(1, 1, 'All', ''),
+(1, 2, 'Trending', ''),
+(2, 3, 'All', ''),
+(2, 4, 'Trending', ''),
+
+-- Finite Abys Game Forum
+(1, 5, 'General Discussion', 'Discuss anything related to the game.'),
+(1, 6, 'Bugs & Issues', 'Report bugs and issues you encounter here.'),
+(1, 7, 'Support', 'Ask for help regarding the game.'),
+(1, 8, 'Feature Requests', 'Suggest features you would like to see implemented.'),
+
+-- Mod Workshop Forum
+(2, 9, 'New Mods', 'Discuss new mods here.'),
+(2, 10, 'Mod: Infinite Abys', 'Most popular mod, making the game replayable'),
+(2, 11, 'Mod: Abys', 'A retro mod, giving nostalgia'),
+(2, 12, 'Mod: Calamity', 'A challenging mod for the game'),
+(2, 13, 'General Discussion', 'Discuss all things related to modding'),
+(2, 14, 'Mod Support', 'Recieve help on creating or running mods');
 
 -- --------------------------------------------------------
 
@@ -52,6 +68,7 @@ CREATE TABLE `comments` (
   `comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
   `content` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -85,8 +102,9 @@ INSERT INTO `groups` (`group_id`, `name`, `permissions`) VALUES
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `channel_id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
   `title` varchar(25) NOT NULL,
+  `value` int(11) NOT NULL,
   `content` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -104,7 +122,9 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `joined` datetime NOT NULL,
-  `group_id` int(11) NOT NULL
+  `group_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -112,9 +132,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `name`, `joined`, `group_id`) VALUES
-(1, 'Jesper', '$2y$10$GUgKszEgNey8FtQKhNgnU.fwKtEjFyd4qT4He1rjXPNn5ZQumW7pC', 'Jesper', '2023-07-30 12:59:32', 1),
-(2, 'asdasd', '$2y$10$ec47f881fa06a3adf0fabuFnaSafeEP/3JZjx.6Q4OHU59FOIEVO6', 'asdasd', '2023-07-30 13:02:31', 1),
-(3, 'dsadsa', '$2y$10$84d639d798f70a86b04a2uw6Lcc/Ry7qAMpO1w9fAhMGeWOTg5eku', 'dsadsa', '2023-07-30 13:02:53', 1);
+(1, 'Gunnar', '', 'Gunnar', '2023-10-29 00:00:00', 2),
+(2, 'Casper', '', 'Casper', '2023-10-29 00:00:00', 2),
+(3, 'Mihnea', '', 'Mihnea', '2023-10-29 00:00:00', 2),
+(4, 'Jeppe', '', 'Jeppe', '2023-10-29 00:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -134,21 +155,21 @@ CREATE TABLE `users_session` (
 -- Table structure for table `votes`
 --
 
-CREATE TABLE `votes` (
-  `vote_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `comment_id` int(11) DEFAULT NULL,
-  `value` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- CREATE TABLE `votes` (
+--   `vote_id` int(11) NOT NULL,
+--   `user_id` int(11) NOT NULL,
+--   `post_id` int(11) DEFAULT NULL,
+--   `comment_id` int(11) DEFAULT NULL,
+--   `value` tinyint(1) NOT NULL,
+--   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
--- Indexes for table `channels`
+-- Indexes for table `topics`
 --
-ALTER TABLE `channels`
-  ADD PRIMARY KEY (`channel_id`);
+ALTER TABLE `topics`
+  ADD PRIMARY KEY (`topic_id`);
 
 --
 -- Indexes for table `comments`
@@ -170,7 +191,7 @@ ALTER TABLE `groups`
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `user_id` (`user_id`),
-  ADD KEY `channel_id` (`channel_id`);
+  ADD KEY `topic_id` (`topic_id`);
 
 --
 -- Indexes for table `users`
@@ -189,17 +210,17 @@ ALTER TABLE `users_session`
 --
 -- Indexes for table `votes`
 --
-ALTER TABLE `votes`
-  ADD PRIMARY KEY (`vote_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `post_id` (`post_id`),
-  ADD KEY `comment_id` (`comment_id`);
+-- ALTER TABLE `votes`
+--   ADD PRIMARY KEY (`vote_id`),
+--   ADD KEY `user_id` (`user_id`),
+--   ADD KEY `post_id` (`post_id`),
+--   ADD KEY `comment_id` (`comment_id`);
 
 --
--- AUTO_INCREMENT for table `channels`
+-- AUTO_INCREMENT for table `topics`
 --
-ALTER TABLE `channels`
-  MODIFY `channel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `topics`
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -234,8 +255,8 @@ ALTER TABLE `users_session`
 --
 -- AUTO_INCREMENT for table `votes`
 --
-ALTER TABLE `votes`
-  MODIFY `vote_id` int(11) NOT NULL AUTO_INCREMENT;
+-- ALTER TABLE `votes`
+--   MODIFY `vote_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for table `comments`
@@ -249,7 +270,7 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`),
-  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`channel_id`) REFERENCES `channels` (`channel_id`);
+  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`);
 
 --
 -- Constraints for table `users`
@@ -266,11 +287,11 @@ ALTER TABLE `users_session`
 --
 -- Constraints for table `votes`
 --
-ALTER TABLE `votes`
-  ADD CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`),
-  ADD CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`),
-  ADD CONSTRAINT `votes_ibfk_3` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`comment_id`);
-COMMIT;
+-- ALTER TABLE `votes`
+--   ADD CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`),
+--   ADD CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`),
+--   ADD CONSTRAINT `votes_ibfk_3` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`comment_id`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
