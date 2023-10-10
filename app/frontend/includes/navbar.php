@@ -7,9 +7,6 @@
     <form class="form-inline mx-auto my-2 my-lg-0 d-lg-none" action="search.php" method="GET">
       <div class="input-group">
         <input class="form-control" type="text" name="search" placeholder="Search">
-        <div class="input-group-append">
-          <button class="btn btn-success" type="submit">Search</button>
-        </div>
       </div>
     </form>
 
@@ -20,10 +17,9 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="forum.php">Forums</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="forum.php">Forum1</a>
-            <a class="dropdown-item" href="forum.php">Forum2</a>
-            <a class="dropdown-item" href="forum.php">Forum3</a>
+          <div class="dropdown-menu bg-dark">
+            <a class="dropdown-item" href="forum.php">Finite Abys</a>
+            <a class="dropdown-item" href="forum.php">Mod Workshop</a>
           </div>
         </li>
 
@@ -38,9 +34,6 @@
       <form class="form-inline mx-auto d-lg-block d-none" action="search.php" method="GET">
         <div class="input-group">
           <input class="form-control" type="text" name="search" placeholder="Search">
-          <div class="input-group-append">
-            <button class="btn btn-success" type="submit">Search</button>
-          </div>
         </div>
       </form>
       <ul class="navbar-nav d-none d-lg-block ml-auto">
