@@ -10,8 +10,8 @@ body {
 
 .header {
     margin-bottom: 0;
-    background-image: url(../Img/beautiful-milky-way-night-sky.jpg);
     border-radius: 0;
+    background-image: url(../Img/beautiful-milky-way-night-sky.jpg);
     background-size: cover;
 }
 .header .nav-link {
