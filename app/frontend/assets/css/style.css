@@ -20,27 +20,17 @@ body {
 .header .nav-link:hover {
     color: grey;
 }
-.navbar {
-    box-shadow: 5px 0px 10px black;
+.navbar, .sidebar {
+    box-shadow: 3px 0px 10px black;
 }
 
-h1 {
+h1, p, ol {
     color: white;
     width: fit-content;
-}   
-
-h3 {
-    width: fit-content;
 }
 
-p {
+.posts p, .posts h1 {
     color: black;
-    width: fit-content;
-}
-
-ol {
-    color: white;
-    width: fit-content;
 }
 
 .banner-container {
@@ -56,3 +46,14 @@ footer {
 .bg-dark a, a, h1, h2, h3, label {
     color: rgba(255,255,255,.7);
 }
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }

@@ -9,6 +9,13 @@ class Post
         }
     }
 
+    public static function delete($id)
+    {
+        if (!Database::getInstance()->delete('posts', array('post_id', '=', $id))) {
+            throw new Exception("Unable to delete the post.");
+        }
+    }
+
     public static function getAllPosts()
     {
         $posts = Database::getInstance()->get('posts', array('post_id', '>', '0'));

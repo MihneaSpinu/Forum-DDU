@@ -17,10 +17,11 @@ if (!$user->isLoggedIn()) {
 //     $topic = Topic::getTopic($topic_id);
 //     $posts = Post::getTopicPosts($topic_id);
 // }
+$data = $user->data();
 
 $post = Post::getPostById(Input::get('post_id'));
+$creator = User::getUserById($post->user_id);
 $topic_id = $post->topic_id;
-$data = $user->data();
 
 if (Input::get('submit')) {
 
