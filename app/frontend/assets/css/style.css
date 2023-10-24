@@ -4,7 +4,6 @@
 }
 
 body {
-    /* gray */
     background-color: rgb(43, 42, 51);
 }
 
@@ -35,7 +34,7 @@ h3 {
 }
 
 p {
-    color: white;
+    color: black;
     width: fit-content;
 }
 

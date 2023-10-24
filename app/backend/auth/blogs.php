@@ -5,4 +5,4 @@ if (!$user->isLoggedIn()) {
     Redirect::to('index.php');
 }
 $data = $user->data();
-$channels = Channel::getChannels();
+$topics = Topic::gettopics();

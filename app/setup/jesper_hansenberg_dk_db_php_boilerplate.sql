@@ -109,6 +109,16 @@ CREATE TABLE `posts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `title`, `value`, `content`, `created_at`) VALUES
+(1, 1, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(2, 2, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(3, 3, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(4, 4, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(5, 1, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(6, 2, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(7, 3, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
+(8, 4, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00');
+
 
 -- --------------------------------------------------------
 

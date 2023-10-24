@@ -2,7 +2,6 @@
 
 class Post
 {
-
     public static function create($fields = array())
     {
         if (!Database::getInstance()->insert('posts', $fields)) {
@@ -14,16 +13,14 @@ class Post
     {
         $posts = Database::getInstance()->get('posts', array('post_id', '>', '0'));
         //return list of posts
-        return $posts;
+        return $posts;        
     }
 
-    public static function getChannelPosts($channel_id)
+    public static function getTopicPosts($topic_id)
     {
-        $posts = Database::getInstance()->get('posts', array('channel_id', '=', $channel_id));
-        //return list of posts
+        $posts = Database::getInstance()->get('posts', array('topic_id', '=', $topic_id));
         return $posts;
     }
-
 
     public static function getPostById($post_id)
     {

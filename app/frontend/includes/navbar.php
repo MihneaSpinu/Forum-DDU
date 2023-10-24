@@ -13,8 +13,8 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="forum.php">Forums</a>
         <div class="dropdown-menu bg-dark">
-          <a class="dropdown-item" href="forum.php">Finite Abys</a>
-          <a class="dropdown-item" href="forum.php">Mod Workshop</a>
+          <a class="dropdown-item" href="forum.php?forum_id=1&topic_id=1">Finite Abys</a>
+          <a class="dropdown-item" href="forum.php?forum_id=2&topic_id=3">Mod Workshop</a>
         </div>
       </li>
       <li class="nav-item">

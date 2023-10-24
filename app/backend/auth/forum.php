@@ -5,4 +5,10 @@ if (!$user->isLoggedIn()) {
     Redirect::to('index.php');
 }
 $data = $user->data();
-$channels = Channel::getChannels();
+
+
+$forum_id = Input::get('forum_id');
+$topic_id = Input::get('topic_id');
+
+$posts = Post::getTopicPosts($topic_id)->results();
+$topics = Topic::getTopics()->results();
