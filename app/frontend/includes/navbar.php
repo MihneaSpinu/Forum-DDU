@@ -26,7 +26,7 @@
     </form>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="webshop.php">Webshop</a>
+        <a class="nav-link" href="index.php">Webshop</a>
       </li>
     </ul>
   </div>

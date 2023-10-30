@@ -37,12 +37,16 @@
                         foreach ($topics as $topic) {
                             if ($topic->topic_id == $topic_id) {
                                 echo '<h1>Posts Overview in the ' . $topic->name . ' topic</h1>';
+                                //Create post button
+                                echo '<a href="create-post.php?forum_id=' . $forum_id . '&topic_id=' . $topic_id . '" class="btn btn-primary btn-block mb-2 font-weight-bold mx-auto text-white" style="white-space: normal;">Create Post</a>';
                                 if (count($posts) > 0) {
                                     foreach ($posts as $p) {
                                         echo '<div class="card">';
                                         echo '<div class="card-body">';
                                         echo '<h4 class="card-title">' . $p->title . '</h4>';
                                         echo '<p class="card-text">' . $p->content . '</p>';
+                                        echo '<p class="card-text">Posted by: ' . User::getUserById($p->user_id)->username . '</p>';
+                                        echo '<p class="card-text">Posted on: ' . $p->created_at . '</p>';
                                         echo '<a href="posts.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
                                         echo '</div>';
                                         echo '</div>';

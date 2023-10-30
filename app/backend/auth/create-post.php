@@ -25,11 +25,11 @@ if (Input::exists()) {
                     'title'  => Input::get('title'),
                     'content'  => Input::get('content'),
                     'user_id'      => $user->data()->uid,
-                    'channel_id'    => Input::get('channel_id'),
+                    'topic_id'    => Input::get('topic_id'),
                 ));
 
                 Session::flash('create-post-success', 'Thanks for posting.');
-                Redirect::to('posts.php?channel_id=' . Input::get('channel_id'));
+                Redirect::to('forum.php?forum_id=' . Input::get('forum_id') . '&topic_id=' . Input::get('topic_id'));
             } catch (Exception $e) {
                 die($e->getMessage());
             }

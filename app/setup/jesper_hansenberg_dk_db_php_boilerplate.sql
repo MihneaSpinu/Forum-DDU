@@ -73,6 +73,14 @@ CREATE TABLE `comments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `value`, `content`, `created_at`) VALUES
+(1, 1, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(2, 2, 2, 0, 'My name is Barack Obama and I aprove this message', '2023-10-25 00:00:00'),
+(3, 1, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(4, 3, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(5, 4, 1, 0, 'My name is Donald J Trump and I aprove this message', '2023-10-25 00:00:00'),
+(6, 2, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -110,14 +118,14 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `title`, `value`, `content`, `created_at`) VALUES
-(1, 1, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(2, 2, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(3, 3, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(4, 4, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(5, 1, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(6, 2, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(7, 3, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00'),
-(8, 4, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-29 00:00:00');
+(1, 1, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(2, 2, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(3, 3, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(4, 4, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(5, 1, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(6, 2, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(7, 3, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
+(8, 4, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00');
 
 
 -- --------------------------------------------------------
@@ -142,10 +150,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `name`, `joined`, `group_id`) VALUES
-(1, 'Gunnar', '', 'Gunnar', '2023-10-29 00:00:00', 2),
-(2, 'Casper', '', 'Casper', '2023-10-29 00:00:00', 2),
-(3, 'Mihnea', '', 'Mihnea', '2023-10-29 00:00:00', 2),
-(4, 'Jeppe', '', 'Jeppe', '2023-10-29 00:00:00', 2);
+(1, 'Gunnar', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Gunnar', '2023-10-25 00:00:00', 2),
+(2, 'Casper', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Casper', '2023-10-25 00:00:00', 2),
+(3, 'Mihnea', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Mihnea', '2023-10-25 00:00:00', 2),
+(4, 'Jeppe', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Jeppe', '2023-10-25 00:00:00', 2);
 
 -- --------------------------------------------------------
 

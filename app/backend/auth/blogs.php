@@ -2,7 +2,7 @@
 require_once 'app/backend/core/Init.php';
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('login.php');
 }
 $data = $user->data();
 $topics = Topic::gettopics();

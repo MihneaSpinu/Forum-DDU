@@ -23,11 +23,11 @@ class Comment
         return $comments;
     }
 
-    // public static function getCommentById($comment_id)
-    // {
-    //     $comment = Database::getInstance()->get('comments', array('comment_id', '=', $comment_id));
-    //     if ($comment->count()) {
-    //         return $comment->first();
-    //     }
-    // }
+    public static function getCommentById($comment_id)
+    {
+        $comment = Database::getInstance()->get('comments', array('comment_id', '=', $comment_id));
+        if ($comment->count()) {
+            return $comment->first();
+        }
+    }
 }

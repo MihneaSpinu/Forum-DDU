@@ -13,7 +13,7 @@
         <h1 class="mx-auto mb-5 mt-3">Welcome to Broom Sweep Games</h1>
         <p class="mx-auto mb-4">We're thrilled to have you here, and we invite you to join the discussion in our "Forums" section. To participate, please register or log in.</p>
         <div class="mx-auto">
-          <a class="btn btn-primary btn-lg w-100 mb-3" href="forum.php">Forums
+          <a class="btn btn-primary btn-lg w-100 mb-3" href="forum.php?forum_id=1&topic_id=1">Forums
           </a>
         </div>  
         <p class="mx-auto mb-4 mt-3"> To ensure a positive and respectful environment, we ask that you follow these guidelines:</p>
