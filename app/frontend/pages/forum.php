@@ -38,7 +38,6 @@
                             if ($topic->topic_id == $topic_id) {
                                 if ($topic->name == "All" || $topic->name == "Trending") {
                                     echo '<h1>Posts Overview in the ' . $topic->name . ' topic</h1>';
-                                    //Create post button
                                     echo '<a href="create-post.php?forum_id=' . $forum_id . '&topic_id=' . $topic_id . '" class="btn btn-primary btn-block mb-2 font-weight-bold mx-auto text-white" style="white-space: normal;">Create Post</a>';
                                     foreach ($topics as $allTopics) {
                                         $posts = Post::getTopicPosts($allTopics->topic_id)->results();
