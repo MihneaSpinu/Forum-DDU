@@ -29,8 +29,8 @@ h1, p, ol {
     width: fit-content;
 }
 
-.posts p, .posts h1, .comments p, .comments h1 {
-    color: black;
+.posts p, .posts h1, .comments p, .comments h1, .posts h4, .comments h4 {
+    color: #fff;
 }
 
 .banner-container {

@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="jumbotron text-center w-100" style="margin-bottom:0">
+        <div class="jumbotron text-center w-100 bg-dark" style="margin-bottom:0">
             <?php
             // Rest of the HTML and PHP code
             if (isset($comments) && count($comments) > 0) {
                 foreach ($comments as $c) {
                     echo '<div class="card comments">';
-                    echo '<div class="card-body justify-content-start">';
+                    echo '<div class="card-body justify-content-start bg-dark">';
                     $creator = User::getUserById($c->user_id);
                     echo '<h4 class="card-title">' . $creator->username . '</h4>';
                     echo '<p class="card-text">' . $c->content . '</p>';

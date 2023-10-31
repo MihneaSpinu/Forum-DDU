@@ -11,7 +11,7 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="forum.php">Forums</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="forum.php?forum_id=1&topic_id=1">Forums</a>
         <div class="dropdown-menu bg-dark">
           <a class="dropdown-item" href="forum.php?forum_id=1&topic_id=1">Finite Abys</a>
           <a class="dropdown-item" href="forum.php?forum_id=2&topic_id=3">Mod Workshop</a>
