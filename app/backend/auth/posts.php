@@ -14,11 +14,6 @@ if (Input::get('topic_id')) {
     $posts = Post::getTopicPosts($topic_id);
 }
 
-// if (Input::get('submit')) {
-//     Post::create($post);
-//     Redirect::to('topic.php?id=' . $topic_id);
-// }
-
 $data = $user->data();
 
 $post = Post::getPostById(Input::get('post_id'));

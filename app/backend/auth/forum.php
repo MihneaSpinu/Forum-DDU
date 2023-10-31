@@ -12,7 +12,7 @@ $topic_id = Input::get('topic_id');
 
 $posts = Post::getTopicPosts($topic_id)->results();
 //sort
-usort($posts, function($a, $b) {
+usort($posts, function($b, $a) {
     return strtotime($b->created_at) - strtotime($a->created_at);
 });
 $topics = Topic::getTopics()->results();

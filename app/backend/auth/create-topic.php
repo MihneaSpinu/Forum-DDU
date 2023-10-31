@@ -21,14 +21,13 @@ if (Input::exists()) {
 
         if ($validate->passed()) {
             try {
-                Post::create(array(
-                    'title'  => Input::get('title'),
-                    'content'  => Input::get('content'),
-                    'user_id'      => $user->data()->uid,
-                    'topic_id'    => Input::get('topic_id'),
+                Topic::create(array(
+                    'name'  => Input::get('title'),
+                    'description'  => Input::get('content'),
+                    'forum_id'    => Input::get('forum_id'),
                 ));
 
-                Session::flash('create-post-success', 'Thanks for posting.');
+                Session::flash('create-topic-success');
                 Redirect::to('forum.php?forum_id=' . Input::get('forum_id') . '&topic_id=' . Input::get('topic_id'));
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -41,10 +40,8 @@ if (Input::exists()) {
     }
 }
 $forum_id = Input::get('forum_id');
-$topics = Topic::getTopics()->results();
-//Remove "ALL" and "Trending" topics
-foreach ($topics as $key => $topic) {
-    if ($topic->name == "All" || $topic->name == "Trending") {
-        unset($topics[$key]);
-    }
+if ($forum_id == 1) {
+    $forum_name = "Finite Abys";
+} else {
+    $forum_name = "Mod Workshop";
 }
