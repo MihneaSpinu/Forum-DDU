@@ -9,10 +9,25 @@ class Comment
         }
     }
 
+    public static function delete($id)
+    {
+        if (!Database::getInstance()->delete('comments', array('comment_id', '=', $id))) {
+            throw new Exception("Unable to delete the comment.");
+        }
+    }
+
     public static function getAllComments($post_id)
     {
-        $comments = Database::getInstance()->query("SELECT comments.*, users.username FROM comments JOIN users ON comments.user_id = users.uid WHERE post_id = ?", array($post_id));
+        $comments = Database::getInstance()->get('comments', array('post_id', '=', $post_id))->results();
         //return list of comments
         return $comments;
+    }
+
+    public static function getCommentById($comment_id)
+    {
+        $comment = Database::getInstance()->get('comments', array('comment_id', '=', $comment_id));
+        if ($comment->count()) {
+            return $comment->first();
+        }
     }
 }

@@ -1,0 +1,48 @@
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+body {
+    background-color: rgb(43, 42, 51);
+}
+
+.header {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-image: url(../Img/beautiful-milky-way-night-sky.jpg);
+    background-size: cover;
+}
+.header .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.header .nav-link:hover {
+    color: grey;
+}
+.navbar, .sidebar {
+    box-shadow: 3px 0px 10px black;
+}
+
+h1, p, ol {
+    color: white;
+    width: fit-content;
+}
+
+.posts p, .posts h1, .comments p, .comments h1 {
+    color: black;
+}
+
+.banner-container {
+    background-image: url(../Img/Finite_Abys.png);
+    aspect-ratio: 19.2 / 6;
+    width: 100%;
+    background-size: contain;
+}
+
+footer {
+    color: white;
+}
+.bg-dark a, a, h1, h2, h3, label {
+    color: rgba(255,255,255,.7);
+}
