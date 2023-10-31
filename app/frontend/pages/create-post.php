@@ -1,6 +1,21 @@
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
     <h2>Create Post Form</h2>
     <form action="" method="post">
+        <!-- Choose topic within forum id -->
+        <div class="form-group">
+            <label for="topic_id">Topic :</label>
+            <select class="form-control" id="topic_id" name="topic_id">
+                <?php
+                $topics = Topic::getTopics()->results();
+                if (count($topics) > 0) {
+                    foreach ($topics as $topic) {
+                        if ($topic->forum_id == $forum_id) {
+                            echo '<option value="' . $topic->topic_id . '">' . $topic->name . '</option>';
+                        }
+                    }
+                }
+                ?>
+            </select>   
         <div class="form-group">
             <label for="name">Title :</label>
             <input type="text" class="form-control" id="title" placeholder="Enter name for the post" name="title" value="<?php echo escape(Input::get('title')); ?>">

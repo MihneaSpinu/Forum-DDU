@@ -1,17 +1,9 @@
 <?php
 require_once 'app/backend/core/Init.php';
 
-if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
-}
 if (!Input::get('post_id')) {
     Redirect::to('index.php');
 }
-
-$data = $user->data();
-$channel_id = Input::get('channel_id');
-$post_id = Input::get('post_id');
-
 
 if (Input::exists()) {
     Comment::create(array(
@@ -20,5 +12,9 @@ if (Input::exists()) {
         'content' => Input::get('content'),
         'created_at' => date('Y-m-d H:i:s')
     ));
-    Redirect::to('comments.php?post_id=' . $post_id);
+    Redirect::to('posts.php?post_id=' . $post_id);
 }
+
+$data = $user->data();
+$channel_id = Input::get('channel_id');
+$post_id = Input::get('post_id');

@@ -168,4 +168,14 @@ class User
             throw new Exception('Unable to update the user.');
         }
     }
+
+    public static function getUserById($id)
+    {
+        $db = Database::getInstance();
+        $data = $db->get('users', array('uid', '=', $id));
+        if ($data->count())
+        {
+            return $data->first();
+        }
+    }
 }
