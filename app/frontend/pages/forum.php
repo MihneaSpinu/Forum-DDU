@@ -31,7 +31,7 @@
         </div>
         <div class="col py-3">
             <div class="row justify-content-center">
-                <div class="jumbotron text-center posts" style="margin-bottom:0; background-color: #2b2a33">
+                <div class="jumbotron text-center posts w-100" style="margin-bottom:0; background-color: #2b2a33">
                     <?php
                     if (count($topics) > 0) {
                         foreach ($topics as $topic) {
