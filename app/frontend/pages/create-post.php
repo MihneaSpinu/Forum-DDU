@@ -6,7 +6,6 @@
             <label for="topic_id">Topic :</label>
             <select class="form-control" id="topic_id" name="topic_id">
                 <?php
-                $topics = Topic::getTopics()->results();
                 if (count($topics) > 0) {
                     foreach ($topics as $topic) {
                         if ($topic->forum_id == $forum_id) {

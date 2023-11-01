@@ -42,7 +42,7 @@ if (Input::exists()) {
 }
 $forum_id = Input::get('forum_id');
 $topics = Topic::getTopics()->results();
-//Remove "ALL" and "Trending" topics
+
 foreach ($topics as $key => $topic) {
     if ($topic->name == "All" || $topic->name == "Trending") {
         unset($topics[$key]);

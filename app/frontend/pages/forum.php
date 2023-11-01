@@ -37,11 +37,16 @@
                         foreach ($topics as $topic) {
                             if ($topic->topic_id == $topic_id) {
                                 if ($topic->name == "All" || $topic->name == "Trending") {
-                                    echo '<h1>Posts Overview in the ' . $topic->name . ' topic</h1>';
+                                    echo '<h1>Posts Overview in ' . $topic->name . '</h1>';
                                     echo '<a href="create-post.php?forum_id=' . $forum_id . '&topic_id=' . $topic_id . '" class="btn btn-primary btn-block mb-2 font-weight-bold mx-auto text-white" style="white-space: normal;">Create Post</a>';
                                     foreach ($topics as $allTopics) {
+                                        //if topic contains posts, write topic name
                                         $posts = Post::getTopicPosts($allTopics->topic_id)->results();
-                                        if (count($posts) > 0) {
+                                        usort($posts, function ($a, $b) {
+                                            return strtotime($b->created_at) - strtotime($a->created_at);
+                                        });
+                                        if (count($posts) > 0 && $allTopics->forum_id == $forum_id) {
+                                            echo '<h3 class="text-left mt-2">' . $allTopics->name . '</h3>';
                                             foreach ($posts as $p) {
                                                 echo '<div class="card">';
                                                 echo '<div class="card-body bg-dark">';
