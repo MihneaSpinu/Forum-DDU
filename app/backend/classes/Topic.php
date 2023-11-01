@@ -28,7 +28,6 @@ class Topic
         $ret = Database::getInstance()->get('topics', array('topic_id', '=', $id));
         
         if ($ret->count()) {
-            echo $ret->first()->topic_subject;
             return $ret->first();
         }        
     }

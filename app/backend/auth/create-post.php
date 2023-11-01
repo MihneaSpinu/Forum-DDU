@@ -9,7 +9,7 @@ if (Input::exists()) {
             'title' => array(
                 'required' => true,
                 'min' => 2,
-                'max' => 25
+                'max' => 255,
             ),
 
             'content' => array(

@@ -19,3 +19,4 @@ $data = $user->data();
 $post = Post::getPostById(Input::get('post_id'));
 $creator = User::getUserById($post->user_id);
 $topic_id = $post->topic_id;
+$topic = Topic::getTopic($topic_id);

@@ -74,12 +74,12 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `value`, `content`, `created_at`) VALUES
-(1, 1, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
-(2, 2, 2, 0, 'My name is Barack Obama and I aprove this message', '2023-10-25 00:00:00'),
-(3, 1, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
-(4, 3, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
-(5, 4, 1, 0, 'My name is Donald J Trump and I aprove this message', '2023-10-25 00:00:00'),
-(6, 2, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00');
+(1, 7, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(2, 8, 2, 0, 'My name is Barack Obama and I aprove this message', '2023-10-25 00:00:00'),
+(3, 7, 1, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(4, 7, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00'),
+(5, 6, 1, 0, 'My name is Donald J Trump and I aprove this message', '2023-10-25 00:00:00'),
+(6, 7, 2, 0, 'My name is Joe Biden and I aprove this message', '2023-10-25 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -111,22 +111,17 @@ CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `topic_id` int(11) NOT NULL,
-  `title` varchar(25) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `value` int(11) NOT NULL,
   `content` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `posts` (`post_id`, `user_id`, `topic_id`, `title`, `value`, `content`, `created_at`) VALUES
-(1, 1, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(2, 2, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(3, 3, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(4, 4, 1, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(5, 1, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(6, 2, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(7, 3, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00'),
-(8, 4, 2, 'Welcome to the forum!', 0, 'Welcome to the forum! Feel free to post anything you want.', '2023-10-25 00:00:00');
-
+(1, 1, 5, 'AITA?', 0, 'My gf has asked me to stop gooning after having a 6 hour sesh with the boys. I promptly kicked her out and left her to the streets after such vile comments. But now no one is here to cook dinner, so I am starting to regret. AITA?', '2023-10-25 00:00:00'),
+(2, 2, 7, 'Help', 0, 'I am in trouble, and need quick help on the best ways to remove a fragile 3 inch cylinder from a small hole in the wall', '2023-10-25 00:00:00'),
+(3, 3, 5, 'Gooning session ends prematurely', 0, 'I think some sort of bug is happening, where my gooning session stops too quickly', '2023-10-25 00:00:00'),
+(4, 4, 8, 'Gooning feature?', 0, 'Will there ever come a gooning feature to Finite Abys? I love this game and I would really like to see more mechanics added.', '2023-10-25 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -153,7 +148,11 @@ INSERT INTO `users` (`uid`, `username`, `password`, `name`, `joined`, `group_id`
 (1, 'Gunnar', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Gunnar', '2023-10-25 00:00:00', 2),
 (2, 'Casper', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Casper', '2023-10-25 00:00:00', 2),
 (3, 'Mihnea', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Mihnea', '2023-10-25 00:00:00', 2),
-(4, 'Jeppe', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Jeppe', '2023-10-25 00:00:00', 2);
+(4, 'Jeppe', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Jeppe', '2023-10-25 00:00:00', 2),
+(5, 'Jesper', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Jesper', '2023-10-25 00:00:00', 1),
+(6, 'DTrump', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Donald J Trump', '2023-10-25 00:00:00', 1),
+(7, 'JBiden', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Joe Biden', '2023-10-25 00:00:00', 1),
+(8, 'BObama', '$2y$10$qaEEEemHqZoY0K7CzylbfuXs4CeG2v9jHAjC4uQKPFUgaO3y4NS6O', 'Barack Obama', '2023-10-25 00:00:00', 1);
 
 -- --------------------------------------------------------
 

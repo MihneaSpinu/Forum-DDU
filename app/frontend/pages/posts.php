@@ -2,6 +2,7 @@
     <div class="row">
         <div class="jumbotron text-center w-100 bg-dark" style="margin-bottom:0">
             <?php
+            echo '<h3 class="border-bottom">' . $topic->name . '</h3>';
             echo '<h1 class="">' . $post->title . '</h1>';
             echo '<p class="lead ">Posted by: ' . $creator->username . '</p>';
             echo '<p class="lead ">Posted on: ' . $post->created_at . '</p>';

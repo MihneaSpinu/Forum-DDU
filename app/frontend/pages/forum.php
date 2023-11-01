@@ -39,47 +39,33 @@
                                 if ($topic->name == "All" || $topic->name == "Trending") {
                                     echo '<h1>Posts Overview in ' . $topic->name . '</h1>';
                                     echo '<a href="create-post.php?forum_id=' . $forum_id . '&topic_id=' . $topic_id . '" class="btn btn-primary btn-block mb-2 font-weight-bold mx-auto text-white" style="white-space: normal;">Create Post</a>';
-                                    foreach ($topics as $allTopics) {
-                                        //if topic contains posts, write topic name
-                                        $posts = Post::getTopicPosts($allTopics->topic_id)->results();
-                                        usort($posts, function ($a, $b) {
-                                            return strtotime($b->created_at) - strtotime($a->created_at);
-                                        });
-                                        if (count($posts) > 0 && $allTopics->forum_id == $forum_id) {
-                                            echo '<h3 class="text-left mt-2">' . $allTopics->name . '</h3>';
-                                            foreach ($posts as $p) {
-                                                echo '<div class="card">';
-                                                echo '<div class="card-body bg-dark">';
-                                                echo '<h4 class="card-title">' . $p->title . '</h4>';
-                                                echo '<p class="card-text">' . $p->content . '</p>';
-                                                echo '<p class="card-text">Posted by: ' . User::getUserById($p->user_id)->username . '</p>';
-                                                echo '<p class="card-text">Posted on: ' . $p->created_at . '</p>';
-                                                echo '<a href="posts.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                        }
-                                    }
-                                    
                                 } else {
                                     echo '<h1>Posts Overview in the ' . $topic->name . ' topic</h1>';
                                     //Create post button
                                     echo '<a href="create-post.php?forum_id=' . $forum_id . '&topic_id=' . $topic_id . '" class="btn btn-primary btn-block mb-2 font-weight-bold mx-auto text-white" style="white-space: normal;">Create Post</a>';
-                                    if (count($posts) > 0) {
-                                        foreach ($posts as $p) {
-                                            echo '<div class="card">';
-                                            echo '<div class="card-body bg-dark">';
+                                }
+                                if (count($posts) > 0 && $topic->forum_id == $forum_id) {
+                                    foreach ($posts as $p) {
+                                        echo '<div class="card">';
+                                        echo '<div class="card-body bg-dark">';
+                                        if (strlen($p->title) >= 25) {
+                                            echo '<h4 class="card-title">' . substr($p->title, 0, 25) . '...</h4>';
+                                        } else {
                                             echo '<h4 class="card-title">' . $p->title . '</h4>';
-                                            echo '<p class="card-text">' . $p->content . '</p>';
-                                            echo '<p class="card-text">Posted by: ' . User::getUserById($p->user_id)->username . '</p>';
-                                            echo '<p class="card-text">Posted on: ' . $p->created_at . '</p>';
-                                            echo '<a href="posts.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
-                                            echo '</div>';
-                                            echo '</div>';
                                         }
-                                    } else {
-                                        echo '<div class="alert alert-danger"><strong></strong>No posts found!</div>';
+                                        if (strlen($p->content) >= 25) {
+                                            echo '<p class="card-text">' . substr($p->content, 0, 25) . '...</p>';
+                                        } else {
+                                            echo '<p class="card-text">' . $p->content . '</p>';
+                                        }
+                                        echo '<p class="card-text">Posted by: ' . User::getUserById($p->user_id)->username . '</p>';
+                                        echo '<p class="card-text">Posted on: ' . $p->created_at . '</p>';
+                                        echo '<a href="posts.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
+                                        echo '</div>';
+                                        echo '</div>';
                                     }
+                                } else {
+                                    echo '<div class="alert alert-danger"><strong></strong>No posts found!</div>';
                                 }
                             }
                         }
